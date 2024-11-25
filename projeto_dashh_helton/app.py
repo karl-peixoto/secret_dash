@@ -11,7 +11,7 @@ c5 = "rgba(0, 100, 0, 1)"
 
 # Function to get data from MySQL
 def get_data():
-    data = pd.read_csv('secret_dash/projeto_dashh_helton/dados/dados_pontos_selecionados.csv')
+    data = pd.read_csv('projeto_dashh_helton/dados/dados_pontos_selecionados.csv')
 
     #Conversões
     data['tipo'] = data['tipo'].astype(str).str.title()
@@ -25,7 +25,7 @@ def get_data():
 
 
 def get_usage_data(dados_filtrados):
-    usage = pd.read_csv('secret_dash/projeto_dashh_helton/dados/oct_hourly_use.csv')
+    usage = pd.read_csv('projeto_dashh_helton/dados/oct_hourly_use.csv')
     usage = usage[usage['mac_address'].isin(dados_filtrados['mac_address'])]
     usage = usage.merge(dados_filtrados, on='mac_address', how='left')
     usage['GBytes_in'] = usage['incomingBytes'].astype(float) / 1024 / 1024 / 1024
@@ -34,7 +34,7 @@ def get_usage_data(dados_filtrados):
     usage['datetime'] = pd.to_datetime(usage[['year', 'month', 'day', 'hour']])
     usage['date'] = usage['datetime'].dt.date
 
-    apps = pd.read_csv('secret_dash/projeto_dashh_helton/dados/oct_apps_use.csv')
+    apps = pd.read_csv('projeto_dashh_helton/dados/oct_apps_use.csv')
     apps = apps[apps['mac_address'].isin(dados_filtrados['mac_address'])]
     apps = apps.merge(dados_filtrados, on='mac_address', how='left')
     apps['GBytes_in'] = apps['incomingBytes'].astype(float) / 1024 / 1024 / 1024 
@@ -52,7 +52,7 @@ def main():
     
     # Load data
     data = get_data()
-    st.sidebar.image("secret_dash/projeto_dashh_helton/int_vsat_TM_rgb_wht.png", width=100)
+    st.sidebar.image("projeto_dashh_helton/int_vsat_TM_rgb_wht.png", width=100)
     
     # Sidebar filters
     st.sidebar.header("Opções de Filtro")
