@@ -8,7 +8,7 @@ from dash_demo.statics.visuals import *
 import folium
 from streamlit_folium import folium_static
 import sys
-sys.path.append('secret_dash/dash_demo/helpers')
+sys.path.append('/dash_demo/helpers')
 
 with open("dash_demo/statics/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
