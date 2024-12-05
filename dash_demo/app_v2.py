@@ -1,3 +1,6 @@
+import sys
+sys.path.append('dash_demo/helpers')
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -7,8 +10,7 @@ from dash_demo.helpers.custom_elements import *
 from dash_demo.statics.visuals import *
 import folium
 from streamlit_folium import folium_static
-import sys
-sys.path.append('/dash_demo/helpers')
+
 
 with open("dash_demo/statics/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
