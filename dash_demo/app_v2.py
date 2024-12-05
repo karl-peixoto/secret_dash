@@ -1,5 +1,5 @@
 import sys
-sys.path.append('dash_demo/helpers')
+sys.path.append('dash_demo/')
 
 import streamlit as st
 import pandas as pd
